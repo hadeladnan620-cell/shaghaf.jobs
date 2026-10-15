@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة شغف للتوظيف والخدمات الإلكترونية</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Arabic Font (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        shaghaf: {
+                            50: '#f0fdf6',
+                            100: '#dcfce8',
+                            200: '#bbf7d0',
+                            500: '#15803d',
+                            600: '#0f6e37',
+                            700: '#0b5229',
+                            800: '#083e1f',
+                            900: '#052a15',
+                            dark: '#0a321d',
+                        },
+                        gold: {
+                            400: '#d99f4d',
+                            500: '#b88132',
+                            600: '#966322',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text-shaghaf {
+            background: linear-gradient(135deg, #0b5229 0%, #b88132 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #c78f3d 0%, #966322 100%);
+        }
+        .green-gradient-bg {
+            background: linear-gradient(135deg, #0b5229 0%, #052a15 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-shaghaf-700 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <!-- Logo Matching Company Identity -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="flex items-center gap-2">
+                        <div class="h-14 flex items-center">
+                            <svg class="h-full w-auto" viewBox="0 0 350 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="110" cy="38" r="14" fill="#b88132" />
+                                <path d="M78 88C78 68 95 52 118 52C128 52 136 55 142 60L125 76C122 74 117 72 112 72C99 72 90 80 90 92L78 88Z" fill="#b88132"/>
+                                <path d="M142 38L120 50L133 63L142 38Z" fill="#b88132"/>
+                                <path d="M100 115L138 48L145 52L110 118Z" fill="#0b5229"/>
+                                <path d="M60 110 C80 125, 120 135, 160 128 C210 120, 250 115, 280 80 C285 70, 275 60, 260 70 C240 85, 210 100, 170 102 C135 104, 100 95, 80 85 C65 78, 55 95, 60 110 Z" fill="#0b5229"/>
+                                <polygon points="255,42 263,30 271,42 263,54" fill="#0b5229"/>
+                                <polygon points="275,52 283,40 291,52 283,64" fill="#0b5229"/>
+                                <polygon points="245,58 253,46 261,58 253,70" fill="#0b5229"/>
+                                <polygon points="190,62 198,50 206,62 198,74" fill="#0b5229"/>
+                                <text x="175" y="152" text-anchor="middle" font-family="Cairo, sans-serif" font-weight="800" font-size="19" fill="#0b5229">للتوظيف والخدمات الإلكترونية</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 font-bold text-slate-700">
+                    <a href="#home" class="text-shaghaf-700 hover:text-gold-500 transition">الرئيسية</a>
+                    <a href="#about" class="hover:text-shaghaf-700 transition">من نحن</a>
+                    <a href="#services" class="hover:text-shaghaf-700 transition">خدماتنا</a>
+                    <a href="#testimonials" class="hover:text-shaghaf-700 transition">آراء عملائنا</a>
+                    <a href="#contact" class="hover:text-shaghaf-700 transition">تواصل معنا</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-3">
+                    <button onclick="copyPageUrl()" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 border border-slate-200 rounded-xl text-slate-700 bg-slate-50 hover:bg-slate-100 font-bold text-xs sm:text-sm transition">
+                        <i class="fa-solid fa-link ml-2 text-gold-500"></i>
+                        نسخ الرابط
+                    </button>
+
+                    <button onclick="openModal()" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl shadow-md text-sm font-bold text-white green-gradient-bg hover:opacity-95 focus:outline-none transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-user-plus ml-2 text-gold-400"></i>
+                        سجّل بياناتك
+                    </button>
+                    
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Nav Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-6 pt-2 border-t border-slate-100">
+                <div class="flex flex-col space-y-3 font-bold text-slate-700">
+                    <a href="#home" onclick="toggleMobileMenu()" class="text-shaghaf-700 py-1">الرئيسية</a>
+                    <a href="#about" onclick="toggleMobileMenu()" class="hover:text-shaghaf-700 py-1">من نحن</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="hover:text-shaghaf-700 py-1">خدماتنا</a>
+                    <a href="#testimonials" onclick="toggleMobileMenu()" class="hover:text-shaghaf-700 py-1">آراء عملائنا</a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-shaghaf-700 py-1">تواصل معنا</a>
+                    <button onclick="copyPageUrl()" class="w-full py-2.5 rounded-xl text-center text-slate-700 bg-slate-100 font-bold">
+                        <i class="fa-solid fa-link ml-1 text-gold-500"></i> نسخ رابط الموقع
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden py-12 md:py-20 lg:py-24 bg-gradient-to-b from-shaghaf-50/50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Visual Image -->
+                <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+                    <div class="relative w-full max-w-md lg:max-w-none">
+                        <div class="absolute top-0 -right-4 w-72 h-72 bg-shaghaf-100 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-pulse"></div>
+                        <div class="absolute -bottom-8 -left-4 w-72 h-72 bg-amber-100 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-pulse"></div>
+                        
+                        <div class="relative bg-white p-3 rounded-3xl shadow-2xl border border-slate-100">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                                 alt="شغف للتوظيف والخدمات الإلكترونية" 
+                                 class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-sm"
+                                 onerror="this.src='https://placehold.co/600x800/0b5229/ffffff?text=%D8%B4%D8%BA%D9%81+%D9%84%D9%84%D8%AA%D9%88%D8%B8%D9%8A%D9%81'">
+                            
+                            <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
+                                <div class="w-12 h-12 bg-shaghaf-100 text-shaghaf-700 rounded-xl flex items-center justify-center font-bold text-xl">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xl font-black text-slate-900">+5,000</p>
+                                    <p class="text-xs text-slate-500 font-bold">فرصة عمل وخدمة مكتملة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Content -->
+                <div class="lg:col-span-7 order-1 lg:order-2 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-shaghaf-100/80 border border-shaghaf-200 text-shaghaf-800 text-sm font-extrabold mb-6">
+                        <span class="w-2.5 h-2.5 rounded-full bg-gold-500 animate-ping"></span>
+                        فرص أفضل .. بخدمات أسهل
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        مؤسسة <span class="gradient-text-shaghaf">شَغَف</span> للتوظيف <br class="hidden sm:inline"/>
+                        والخدمات الإلكترونية
+                    </h1>
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-700 mb-6">
+                        خطوتك الأولى والواثقة نحو <span class="text-shaghaf-700 underline decoration-gold-400 decoration-wavy">مستقبلك الوظيفي</span>
+                    </h2>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-semibold">
+                        نساعد الباحثين عن العمل في الوصول لأفضل الفرص الوظيفية بالمملكة العربية السعودية، وتسهيل كافة الخدمات الإلكترونية وإعداد السير الذاتية بأسلوب احترافي متكامل.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
+                        <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl green-gradient-bg text-white font-extrabold text-lg shadow-xl shadow-shaghaf-900/20 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <span>سجّل بياناتك واستكشف الفرص</span>
+                            <i class="fa-solid fa-arrow-left text-gold-400 text-sm"></i>
+                        </button>
+                        
+                        <a href="https://wa.me/966578395022" target="_blank" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-lg border border-slate-200 transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+                            <span>تواصل معنا مباشرة</span>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-3">
+                        <span class="text-xs font-bold text-slate-400 ml-2">تابعنا عبر:</span>
+                        <a href="https://wa.me/966578395022" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition shadow-sm" title="واتساب">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="mailto:shaghaf.jobs@gmail.com" class="w-10 h-10 rounded-xl bg-shaghaf-50 text-shaghaf-700 hover:bg-shaghaf-700 hover:text-white flex items-center justify-center transition shadow-sm" title="البريد الإلكتروني">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-black text-slate-900 mb-3">من نحن؟</h2>
+                <div class="w-20 h-1.5 gold-gradient-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-600 text-lg leading-relaxed font-semibold">
+                    مؤسسة <strong class="text-shaghaf-700">شغف للتوظيف والخدمات الإلكترونية</strong> منصة سعودية متخصصة في توفير كافة الحلول الوظيفية والخدمات الإلكترونية المعتمدة. نعمل على ربط الكفاءات وأصحاب الخبرات بكبرى جهات العمل بالمملكة.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-shaghaf-200 transition-all hover:shadow-lg">
+                    <div class="w-14 h-14 bg-shaghaf-100 text-shaghaf-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">رؤيتنا</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm font-semibold">
+                        أن نكون الخيار الأول والمنصة الموثوقة بالمملكة لكل باحث عن فرصة عمل مميزة ولكل جهة تطلب كفاءات احترافية.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-shaghaf-200 transition-all hover:shadow-lg">
+                    <div class="w-14 h-14 bg-amber-100 text-gold-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">رسالتنا</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm font-semibold">
+                        تقديم خدمات إلكترونية واستشارات توظيف دقيقة تمكّن الأفراد من تحقيق طموحاتهم المهنية وسهولة الوصول للفرص.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-shaghaf-200 transition-all hover:shadow-lg">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">قيمنا</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm font-semibold">
+                        السرعة، الشفافية المطلقة، السرية، والالتزام بتقديم أفضل الخدمات الإلكترونية والوظيفية.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-black text-slate-900 mb-3">خدماتنا الإلكترونية والوظيفية</h2>
+                <p class="text-slate-600 text-lg font-bold">باقة متكاملة من الخدمات التي نساعدك من خلالها لتسهيل مسارك المهني</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-shaghaf-50 text-shaghaf-700 rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">إعداد وصياغة السيرة الذاتية</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-semibold">
+                        صياغة نماذج سير ذاتية احترافية تتوافق مع نظام ATS لضمان قبول ملفك لدى مسؤولي التوظيف.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-amber-50 text-gold-600 rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">الخدمات الإلكترونية العامة</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-semibold">
+                        إنجاز ومتابعة كافة التقديمات والتسجيل في المنصات الحكومية والرسمية بدقة وسرعة عالية.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">ترشيح مباشر للشركات</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-semibold">
+                        رفع ملفاتك وبياناتك مباشرة للجهات الشريكة والشركات الباحثة عن تخصصك بالمملكة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-black text-slate-900 mb-3">آراء عملائنا</h2>
+                <p class="text-slate-600 font-bold">نعتز بثقتكم ونسعى دوماً لتقديم أسهل وأفضل الخدمات</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                    <p class="text-slate-600 italic text-sm leading-relaxed mb-6 font-semibold">
+                        "تعاملت مع منصة شغف لإعداد السيرة الذاتية والتقديم، وبصراحة تعامل سريع جداً واحترافي. تم قبولي ووظيفتي في أقل من شهر!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full green-gradient-bg text-white font-bold flex items-center justify-center">
+                            أ
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">عبدالله العتيبي</h4>
+                            <p class="text-xs text-slate-500 font-semibold">الرياض</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                    <p class="text-slate-600 italic text-sm leading-relaxed mb-6 font-semibold">
+                        "خدمات إلكترونية ممتازة ودقة عالية في التواصل والمتابعة عبر الواتساب. شكراً لفريق شغف على جهودهم."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full gold-gradient-bg text-white font-bold flex items-center justify-center">
+                            م
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">منى الشمري</h4>
+                            <p class="text-xs text-slate-500 font-semibold">جدة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-between">
+                    <p class="text-slate-600 italic text-sm leading-relaxed mb-6 font-semibold">
+                        "من أفضل المؤسسات المعنية بالتوظيف والخدمات الإلكترونية، سرعة في التنفيذ ومصداقية تامة."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full green-gradient-bg text-white font-bold flex items-center justify-center">
+                            س
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">سعد الدوسري</h4>
+                            <p class="text-xs text-slate-500 font-semibold">الدمام</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-shaghaf-dark text-white py-12 border-t-4 border-gold-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-black mb-3 text-white">شَغَف<span class="text-gold-400">.</span></h3>
+                    <p class="text-slate-300 text-xs leading-relaxed font-semibold mb-2">
+                        للتوظيف والخدمات الإلكترونية
+                    </p>
+                    <p class="text-gold-400 text-xs font-bold">
+                        فرص أفضل .. بخدمات أسهل
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-base font-bold mb-4 text-gold-400">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm text-slate-300 font-semibold">
+                        <li><a href="#home" class="hover:text-gold-400 transition">الرئيسية</a></li>
+                        <li><a href="#about" class="hover:text-gold-400 transition">من نحن</a></li>
+                        <li><a href="#services" class="hover:text-gold-400 transition">خدماتنا</a></li>
+                        <li><a href="#testimonials" class="hover:text-gold-400 transition">آراء عملائنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-base font-bold mb-4 text-gold-400">تواصل معنا المباشر</h4>
+                    <ul class="space-y-3 text-sm text-slate-300 font-semibold">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-gold-400"></i>
+                            <a href="mailto:shaghaf.jobs@gmail.com" class="hover:text-white transition">shaghaf.jobs@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                            <a href="https://wa.me/966578395022" target="_blank" class="hover:text-white dir-ltr inline-block">+966 57 839 5022</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-gold-400"></i>
+                            <span>الرياض، المملكة العربية السعودية</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-base font-bold mb-4 text-gold-400">سجّل بياناتك الآن</h4>
+                    <p class="text-slate-300 text-xs mb-4 font-semibold">احصل على فرصة للترشيح المباشر لأبرز الوظائف المتاحة</p>
+                    <button onclick="openModal()" class="w-full py-3 px-4 rounded-xl gold-gradient-bg text-white font-extrabold text-sm shadow-md transition hover:opacity-95">
+                        اضغط هنا للتسجيل
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-shaghaf-800 pt-6 text-center text-xs text-slate-400 font-bold">
+                جميع الحقوق محفوظة © 2026 مؤسسة شغف للتوظيف والخدمات الإلكترونية.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl p-6 sm:p-8 relative border border-slate-100 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-5 left-5 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 mx-auto flex items-center justify-center text-2xl mb-3 shadow-sm">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900">سجّل بياناتك معنا</h3>
+                <p class="text-xs font-bold text-slate-500 mt-1">ستُرسل كافة البيانات مباشرة عبر الواتساب للجهة المختصة</p>
+            </div>
+
+            <form id="registerForm" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">الاسم بالكامل <span class="text-red-500">*</span></label>
+                    <input type="text" id="userName" required placeholder="أدخل الاسم الثلاثي" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-shaghaf-500 focus:border-transparent outline-none text-sm transition">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">رقم الجوال / الواتساب <span class="text-red-500">*</span></label>
+                    <input type="tel" id="userPhone" required placeholder="05XXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-shaghaf-500 focus:border-transparent outline-none text-sm transition dir-ltr text-right">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">المؤهل أو التخصص الوظيفي <span class="text-red-500">*</span></label>
+                    <input type="text" id="userJob" required placeholder="مثال: تمريض، إداري، خدمات إلكترونية..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-shaghaf-500 focus:border-transparent outline-none text-sm transition">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">تفاصيل أو ملاحظات إضافية (اختياري)</label>
+                    <textarea id="userNotes" rows="3" placeholder="أذكر أي خدمات أو تفاصيل تود إضافتها..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-shaghaf-500 focus:border-transparent outline-none text-sm transition"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-lg shadow-emerald-600/20 transition flex items-center justify-center gap-2 mt-4">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>إرسال البيانات عبر الواتساب</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toastMsg" class="text-sm font-bold">تم نسخ رابط الموقع بنجاح!</span>
+    </div>
+
+    <script>
+        function copyPageUrl() {
+            const url = window.location.href;
+            const tempInput = document.createElement("input");
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("تم نسخ رابط الموقع بنجاح!");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openModal() {
+            const modal = document.getElementById('registerModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('registerModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('registerForm').reset();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('registerModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const job = document.getElementById('userJob').value;
+            const notes = document.getElementById('userNotes').value;
+
+            const targetPhone = "966578395022";
+
+            let message = `*طلب تسجيل جديد - شغف للتوظيف والخدمات الإلكترونية*%0A%0A`;
+            message += `👤 *الاسم:* ${encodeURIComponent(name)}%0A`;
+            message += `📱 *رقم التواصل:* ${encodeURIComponent(phone)}%0A`;
+            message += `💼 *التخصص / الخدمة المطلوبة:* ${encodeURIComponent(job)}%0A`;
+            if (notes && notes.trim() !== '') {
+                message += `📝 *ملاحظات:* ${encodeURIComponent(notes)}%0A`;
+            }
+
+            const whatsappUrl = `https://wa.me/${targetPhone}?text=${message}`;
+            
+            closeModal();
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
